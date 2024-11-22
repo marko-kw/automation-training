@@ -12,10 +12,7 @@ public class PingAuthPage {
 
     private By pwInputFieldLocator = By.cssSelector("//*[@id='password']");
 
-    private By pingLoginButtonLocator = By.cssSelector("(//a[contains(@class, 'ping-auth-login ')])[2]");
-    // check for the other class in this element so that I don't use the index number
-    //    PingAuthPage pingLogInButtonLocator = new PingAuthPage();
-//        pingLogInButtonLocator.setPingLoginButtonLocator("//*[@id='submit-button']");
+    private By pingLoginButtonLocator = By.cssSelector("//*[@id='submit-button']");
 
     private By x = By.cssSelector("//*[@id='email']");
 
