@@ -1,4 +1,4 @@
-package login;
+package pages;
 
 // This is the page with the TESTS
 // Still need the page with the STEPS (methods) that will reference the page class(es), for each page class

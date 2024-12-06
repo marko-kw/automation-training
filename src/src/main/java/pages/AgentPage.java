@@ -1,7 +1,5 @@
-package login;
+package pages;
 
-// This is a PAGE class
-// This is the page with the locators
 public class AgentPage {
 
     private String agentSiteUrl;

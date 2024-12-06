@@ -1,7 +1,4 @@
-package login;
-
-// This is a PAGE class
-// This is the page with the locators
+package pages;
 
 import org.openqa.selenium.By;
 
@@ -15,10 +12,6 @@ public class PingAuthPage {
     private By pingLoginButtonLocator = By.cssSelector("//*[@id='submit-button']");
 
     private By x = By.cssSelector("//*[@id='email']");
-
-
-
-    // locators go here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
     public void setPwInputFieldLocator(String pwInputFieldLocator) {
@@ -38,3 +31,4 @@ public class PingAuthPage {
     }
 
 }
+
