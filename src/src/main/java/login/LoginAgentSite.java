@@ -11,20 +11,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class LoginAgentSite {
 
     public static void main(String[] args) {
-        WebDriver driver = new ChromeDriver();
 
-        AgentPage agentSite = new AgentPage();
-        agentSite.setAgentSiteUrl("https://agenta.consumer-dev.kw.com/");
 
-        PingAuthPage pingAuthPage = new PingAuthPage();
-        driver.findElement(pingAuthPage.emailInput);
-        // move the above to the steps class in a method
-        //
 
-        User user = new User();
-        user.setUserEmail("marko.delgadillo+qa1@kw.com");
-
-        user.setPw("blahblahblah1");
 
 
 
@@ -37,7 +26,9 @@ public class LoginAgentSite {
     // write the test methods below
     public static void navigateToHomepage(String [] args) {
         WebDriver driver = new ChromeDriver();
-        // driver.get(String);
+
+        AgentPage agentSite = new AgentPage();
+        agentSite.setAgentSiteUrl("https://agenta.consumer-dev.kw.com/");
     }
 
     public static void clickTheLoginButton() {
@@ -45,11 +36,15 @@ public class LoginAgentSite {
     }
 
     public static void inputEmail() {
+        PingAuthPage pingAuthPage = new PingAuthPage();
+        driver.findElement(pingAuthPage.emailInput);
+        User user = new User();
+        user.setUserEmail("marko.delgadillo+qa1@kw.com");
 
     }
 
     public static void inputPassword() {
-
+        user.setPw("blahblahblah1");
     }
 
     public static void clickPingLoginButton() {
