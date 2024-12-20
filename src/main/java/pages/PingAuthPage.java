@@ -1,33 +1,28 @@
 package pages;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.By;
 
 public class PingAuthPage {
 
-    public By emailInput = By.cssSelector("//*[@id='email']");
-    public By pwInput = By.cssSelector("//*[@id='password']");
+    private By emailInput = By.cssSelector(".form #email");
+    private By passwordInput = By.cssSelector(".form #password");
+    private By loginSubmitButton = By.cssSelector(".form #submit-button");
 
-    private By pwInputFieldLocator = By.cssSelector("//*[@id='password']");
-
-    private By pingLoginButtonLocator = By.cssSelector("//*[@id='submit-button']");
-
-    private By x = By.cssSelector("//*[@id='email']");
-
-
-    public void setPwInputFieldLocator(String pwInputFieldLocator) {
-        this.pwInputFieldLocator = pwInputFieldLocator;
+    public PingAuthPage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public String getPwInputFieldLocator() {
-        return this.pwInputFieldLocator;
+    public void enterEmail(String email) {
+        driver.findElement(emailInput).sendKeys(email);
     }
 
-    public void setPingLoginButtonLocator(String pingLoginButtonLocator) {
-        this.pingLoginButtonLocator = pingLoginButtonLocator;
+    public void enterPassword(String password) {
+        driver.findElement(passwordInput).sendKeys(password);
     }
 
-    public String getPingLoginButtonLocator() {
-        return this.pingLoginButtonLocator;
+    public void clickLogin() {
+        driver.findElement(loginSubmitButton).click();
     }
 
 }

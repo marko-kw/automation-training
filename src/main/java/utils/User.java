@@ -1,29 +1,11 @@
-package pages;
+package utils;
 
-// This is a PAGE class
-// This is the page with the locators
-
-
-// this will be the user object with the credentials OR can be in the Main page (LoginAgentSite.java) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 public class User {
-    private String userEmail;
+    public static final String VALID_EMAIL = "marko.delgadillo+qa1@kw.com";
+    public static final String VALID_PASSWORD = "blahblahblah1";
 
-    private String pw;
-
-    public void setUserEmail(String userEmail) {
+    public User(String userEmail, String password) {
         this.userEmail = userEmail;
-    }
-
-    public String getUserEmail(){
-        return this.userEmail;
-    }
-
-
-    public void setPw(String pw){
-        this.pw = pw;
-    }
-
-    public String getPw(){
-        return this.pw;
+        this.password = password;
     }
 }
