@@ -8,20 +8,23 @@ public class HomepageSteps {
 
     private Homepage homepage;
 
+    private WebDriver driver;
+
     public HomepageSteps(WebDriver driver){
         homepage = new Homepage(driver);
+        this.driver = driver;
     }
+
     public void navigateToHomepage() {
-        WebDriver driver = new ChromeDriver();
         driver.get("https://agenta.consumer-dev.kw.com/");
     }
 
     public void clickLogIn() {
-        homepage.clickTheLoginButton();
+        driver.findElement(logInButton).click();
     }
 
     public void validateUserLoggedIn {
-        homepage.validateUserLoggedIn();
+        driver.findElement(userInitials).isDisplayed();
 
     }
 
