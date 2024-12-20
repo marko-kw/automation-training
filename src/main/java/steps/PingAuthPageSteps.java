@@ -6,7 +6,11 @@ import pages.PingAuthPage;
 public class PingAuthSteps{
     private PingAuthPage pingAuthPage;
 
+    private WebDriver driver;
+
+
     public PingAuthSteps(WebDriver driver) {
+        this.driver = driver;
         pingAuthPage = new PingAuthSteps(driver);
     }
 
@@ -14,15 +18,16 @@ public class PingAuthSteps{
         return pingAuthPage.driver.getCurrentUrl().contains(substring);
     }
 
+
     public void inputEmail(String email) {
-        pingAuthPage.enterEmail(email)
+        driver.findElement(emailInput).sendKeys(email);
     }
 
     public void inputPassword(String password) {
-        pingAuthPage.enterPassword(password);
+        driver.findElement(passwordInput).sendKeys(password);
     }
 
     public void clickLogIn {
-        pingAuthPage.clickLogin();
+        driver.findElement(loginSubmitButton).click();
     }
 }
