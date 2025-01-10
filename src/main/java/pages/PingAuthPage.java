@@ -9,7 +9,7 @@ public class PingAuthPage {
 
     public PingAuthPage(WebDriver driver) {
         this.driver = driver;
-    }
+    };
 
     private By emailInput = By.cssSelector(".form #email");
     private By passwordInput = By.cssSelector(".form #password");
@@ -18,5 +18,5 @@ public class PingAuthPage {
 
 
 
-}
+};
 
