@@ -9,10 +9,10 @@ public class Homepage {
 
     public HomePage(WebDriver driver){
         this.driver = driver;
-    }
+    };
 
     private By logInButton = By.cssSelector(".Agent-page-header-end .ping-auth-login.AgentNavigationItem-text-decoration");
     private By userInitials = By.cssSelector(".Agent-page-header-end .avatar-initials");
 
-}
+};
 

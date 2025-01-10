@@ -17,15 +17,15 @@ public class HomepageSteps {
 
     public void navigateToHomepage() {
         driver.get("https://agenta.consumer-dev.kw.com/");
-    }
+    };
 
     public void clickLogIn() {
         driver.findElement(logInButton).click();
-    }
+    };
 
     public void validateUserLoggedIn {
         driver.findElement(userInitials).isDisplayed();
 
-    }
+    };
 
 }

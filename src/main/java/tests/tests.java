@@ -8,11 +8,12 @@ import utils.User;
 
 import java.time.Duration;
 
+@test
 public class Tests {
     public static void main(String[] args) {
-//        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/marko.delgadillo/Documents/chromedriver-mac-arm64");
 
-//        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         HomepageSteps homepageSteps = new HomepageSteps(driver);
         PingAuthSteps pingAuthSteps = new PingAuthSteps(driver);
 
