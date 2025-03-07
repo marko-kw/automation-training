@@ -14,10 +14,6 @@ public class PingAuthPage {
         this.driver = driver;
     };
 
-//    public By emailInput = By.cssSelector(".form #email");
-//    public By passwordInput = By.cssSelector(".form #password");
-//    public By loginSubmitButton = By.cssSelector(".form #submit-button");
-
     @FindBy(css =".form #email")
     public WebElement emailInput;
 

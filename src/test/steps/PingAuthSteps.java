@@ -11,8 +11,6 @@ public class PingAuthSteps{
 
 
     public PingAuthSteps(WebDriver driver) {
-//        pingAuthPage = new PingAuthPage(driver);
-//        this.driver = driver;
 
         pingAuthPage = PageFactory.initElements(driver, PingAuthPage.class);
     }

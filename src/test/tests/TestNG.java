@@ -38,8 +38,6 @@ public class TestNG {
 
 
         // Initialize step classes
-//        homepage = new Homepage(driver);
-//        pingAuthPage = new PingAuthPage(driver);
 
         homepage = PageFactory.initElements(driver, Homepage.class);
         pingAuthPage = PageFactory.initElements(driver, PingAuthPage.class);
@@ -50,12 +48,10 @@ public class TestNG {
         // Navigate to the homepage
         driver.get("https://agenta.consumer-dev.kw.com/");
         wait.until(ExpectedConditions.visibilityOf(homepage.logInButton));
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         // Click login button
         homePageSteps.clickLogIn();
         wait.until(ExpectedConditions.visibilityOf(pingAuthPage.loginSubmitButton));
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Test(description = "This is my first test re-written using TestNG")
@@ -72,7 +68,6 @@ public class TestNG {
         pingAuthSteps.clickLogIn();
 
         wait.until(ExpectedConditions.visibilityOf(homepage.userInitials));
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         // Validate user is logged in
         homePageSteps.validateUserLoggedIn();

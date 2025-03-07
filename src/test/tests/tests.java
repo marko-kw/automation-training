@@ -38,10 +38,8 @@ public class tests {
             // Steps
             homepageSteps.navigateToHomepage();
             wait.until(ExpectedConditions.visibilityOf(homepage.logInButton));
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
             homepageSteps.clickLogIn();
             wait.until(ExpectedConditions.visibilityOf(pingAuthPage.loginSubmitButton));
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
             if (pingAuthSteps.isUrlContains("https://auth.pingone.com/")) {
                 System.out.println("User is in Ping Auth page.");
@@ -53,7 +51,6 @@ public class tests {
             }
 
             wait.until(ExpectedConditions.visibilityOf(homepage.userInitials));
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
             homepageSteps.validateUserLoggedIn();
 

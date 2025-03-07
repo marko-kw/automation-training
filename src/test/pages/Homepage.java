@@ -13,9 +13,6 @@ public class Homepage {
         this.driver = driver;
     };
 
-//    public By logInButton = By.cssSelector(".Agent-page-header-end .ping-auth-login.AgentNavigationItem-text-decoration");
-//    public By userInitials = By.cssSelector(".Agent-page-header-end .avatar-initials");
-
     @FindBy(css = ".Agent-page-header-end .ping-auth-login.AgentNavigationItem-text-decoration")
     public WebElement logInButton;
 

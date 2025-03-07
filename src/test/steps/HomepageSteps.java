@@ -12,8 +12,6 @@ public class HomepageSteps {
     private WebDriver driver;
 
     public HomepageSteps(WebDriver driver){
-//        homepage = new Homepage(driver);
-//        this.driver = driver;
 
         homepage = PageFactory.initElements(driver, Homepage.class);
     }
