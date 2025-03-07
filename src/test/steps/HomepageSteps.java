@@ -2,6 +2,7 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import pages.Homepage;
 
 public class HomepageSteps {
@@ -11,8 +12,10 @@ public class HomepageSteps {
     private WebDriver driver;
 
     public HomepageSteps(WebDriver driver){
-        homepage = new Homepage(driver);
-        this.driver = driver;
+//        homepage = new Homepage(driver);
+//        this.driver = driver;
+
+        homepage = PageFactory.initElements(driver, Homepage.class);
     }
 
     public void navigateToHomepage() {
@@ -20,11 +23,11 @@ public class HomepageSteps {
     };
 
     public void clickLogIn() {
-        driver.findElement(homepage.logInButton).click();
+        homepage.logInButton.click();
     };
 
     public void validateUserLoggedIn() {
-        driver.findElement(homepage.userInitials).isDisplayed();
+        homepage.userInitials.isDisplayed();
 
     };
 

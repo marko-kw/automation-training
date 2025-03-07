@@ -2,8 +2,12 @@ package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import pages.Homepage;
+import pages.PingAuthPage;
 import steps.HomepageSteps;
 import steps.PingAuthSteps;
 import utils.User;
@@ -21,6 +25,10 @@ public class tests {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        Homepage homepage = new Homepage(driver);
+        PingAuthPage pingAuthPage = new PingAuthPage(driver);
         HomepageSteps homepageSteps = new HomepageSteps(driver);
         PingAuthSteps pingAuthSteps = new PingAuthSteps(driver);
 
@@ -29,9 +37,11 @@ public class tests {
         try {
             // Steps
             homepageSteps.navigateToHomepage();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.visibilityOf(homepage.logInButton));
+//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
             homepageSteps.clickLogIn();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.visibilityOf(pingAuthPage.loginSubmitButton));
+//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
             if (pingAuthSteps.isUrlContains("https://auth.pingone.com/")) {
                 System.out.println("User is in Ping Auth page.");
@@ -42,7 +52,8 @@ public class tests {
                 System.out.println("User is NOT in the Ping Auth page.");
             }
 
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.visibilityOf(homepage.userInitials));
+//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
             homepageSteps.validateUserLoggedIn();
 

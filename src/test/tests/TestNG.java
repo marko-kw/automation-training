@@ -2,11 +2,17 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.Homepage;
+import pages.PingAuthPage;
 import steps.HomepageSteps;
 import steps.PingAuthSteps;
 import utils.User;
@@ -16,25 +22,40 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class TestNG {
 
     private WebDriver driver;
+    private Homepage homepage;
+    private PingAuthPage pingAuthPage;
     private HomepageSteps homePageSteps;
     private PingAuthSteps pingAuthSteps;
+
+    WebDriverWait wait;
 
     @BeforeTest
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+
         // Initialize step classes
+//        homepage = new Homepage(driver);
+//        pingAuthPage = new PingAuthPage(driver);
+
+        homepage = PageFactory.initElements(driver, Homepage.class);
+        pingAuthPage = PageFactory.initElements(driver, PingAuthPage.class);
+
         homePageSteps = new HomepageSteps(driver);
         pingAuthSteps = new PingAuthSteps(driver);
 
         // Navigate to the homepage
         driver.get("https://agenta.consumer-dev.kw.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(homepage.logInButton));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         // Click login button
         homePageSteps.clickLogIn();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(pingAuthPage.loginSubmitButton));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Test(description = "This is my first test re-written using TestNG")
@@ -50,7 +71,8 @@ public class TestNG {
         pingAuthSteps.inputPassword(User.VALID_PASSWORD);
         pingAuthSteps.clickLogIn();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(homepage.userInitials));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         // Validate user is logged in
         homePageSteps.validateUserLoggedIn();
