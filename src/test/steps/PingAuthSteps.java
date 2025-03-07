@@ -1,6 +1,7 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import pages.PingAuthPage;
 
 public class PingAuthSteps{
@@ -10,8 +11,8 @@ public class PingAuthSteps{
 
 
     public PingAuthSteps(WebDriver driver) {
-        pingAuthPage = new PingAuthPage(driver);
-        this.driver = driver;
+
+        pingAuthPage = PageFactory.initElements(driver, PingAuthPage.class);
     }
 
     public boolean isUrlContains(String substring) {
@@ -20,14 +21,14 @@ public class PingAuthSteps{
 
 
     public void inputEmail(String email) {
-        driver.findElement(pingAuthPage.emailInput).sendKeys(email);
+        pingAuthPage.emailInput.sendKeys(email);
     }
 
     public void inputPassword(String password) {
-        driver.findElement(pingAuthPage.passwordInput).sendKeys(password);
+        pingAuthPage.passwordInput.sendKeys(password);
     }
 
     public void clickLogIn() {
-        driver.findElement(pingAuthPage.loginSubmitButton).click();
+        pingAuthPage.loginSubmitButton.click();
     }
 }
